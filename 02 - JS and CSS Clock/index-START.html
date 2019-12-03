@@ -67,6 +67,33 @@
   </style>
 
   <script>
+    let currentHour = Math.floor(new Date().getHours());
+    let currentMin = Math.floor(new Date().getMinutes());
+    let currentSec = Math.floor(new Date().getSeconds());
+    
+    if (currentHour > 12) currentHour = currentHour - 12;
+    console.log(currentHour);
+    console.log(currentMin);
+    console.log(currentSec);
+
+    //calc degree
+    let hourDegree = currentHour * 30 + 90;
+    let minDegree = currentMin * 6 + 90;
+    let secDegree = currentSec * 6 + 90;
+    console.log(hourDegree)
+    console.log(minDegree)
+    console.log(secDegree)
+    //90deg 50% 
+    let hourHand = document.getElementsByClassName("hour-hand");
+    let minHand = document.getElementsByClassName("min-hand");
+    let secHand = document.getElementsByClassName("second-hand");
+
+    hourHand[0].style["transform-origin"] = `right`;
+    minHand[0].style["transform-origin"] = `right`;
+    secHand[0].style["transform-origin"] = `right`;
+    hourHand[0].style.transform = `rotate(${hourDegree}deg)`;
+    minHand[0].style.transform = `rotate(${minDegree}deg)`;
+    secHand[0].style.transform = `rotate(${secDegree}deg)`;
 
 
   </script>
